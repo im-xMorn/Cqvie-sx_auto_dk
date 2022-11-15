@@ -59,7 +59,8 @@ def to_mail():
 if __name__ =='__main__':
     now=datetime.datetime.now()
     sign_date_time = now.strftime("%Y-%m-%dT%H:%M:%S.999Z")
-    tooken_value = 'eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImI1YzZmMmU0LTExMzktNGQwOC04NTEwLWFiNzU5NjZhN2Q3OSJ9.Oe2SkcLFTexDWbHzaqD6sRjSwmDYrqGjkK2fZrwXWQUXXxaOUlpC_vYKvHjWqaxpR7u7uMhsS2n7dYXuGSEFMg'
+    # Cookie 值
+    tooken_value = ''
     xx_dz = '重庆工程职业技术学院'
     city = '重庆'
     url = 'https://api.map.baidu.com/geocoder?address={}&output=json&key=E4805d16520de693a3fe707cdc962045&city={}'.format(xx_dz,city)
