@@ -41,7 +41,7 @@ def to_mail():
     ret = True
     try:
         mail_msg = f"""
-                        <p>'今日已签到！'</p>
+                        <p>'今日已签到！该填写日报了噢！'</p>
                    """
         msg = MIMEText(mail_msg, 'html', 'utf-8')
         msg['From'] = formataddr(["发件人昵称", my_sender])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号
