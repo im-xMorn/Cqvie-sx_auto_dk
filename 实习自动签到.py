@@ -28,12 +28,7 @@ def everyday_dk(lng,lat,sign_date_time):
     data = json.dumps(data)
     response = requests.post(url=url,headers=headers,cookies=cookies,data=data).text
     return response
-
-def return_info(Qd_info):
-    Qd_info_1 = re.findall(Qd_info,'\{"msg\":"请求访问：/error，认证失败，无法访问系统资源","code":401}')
-    print(Qd_info_1)
     
-
 if __name__ =='__main__':
     now=datetime.datetime.now()
     sign_date_time = now.strftime("%Y-%m-%dT%H:%M:%S.999Z")
@@ -42,4 +37,3 @@ if __name__ =='__main__':
     lat = '29.536867'
     Qd_info = everyday_dk(lng[0],lat[0],sign_date_time)
     print(Qd_info)
-    return_info(Qd_info)
