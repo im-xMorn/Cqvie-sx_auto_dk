@@ -4,6 +4,7 @@
 ## Cookie值获取:
 ![image](https://user-images.githubusercontent.com/102405245/201950883-5e819f19-04e0-4cc4-895e-7167b2c31fa4.png)
 ```javascript
+Jscript Code：
 javascript:(()=>{prompt('',document.cookie)})();
 ```
 
