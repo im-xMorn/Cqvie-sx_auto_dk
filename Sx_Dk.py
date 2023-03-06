@@ -12,12 +12,12 @@ import datetime
 def everyday_dk(lng,lat,sign_date_time):
     url = 'https://dgsx.cqvie.edu.cn/prod-api/internship_pending/signrecord'
     headers = {
-        'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJs2dpbl91c2VyX2tleSI6IjNkNzhiZTQ2LTQ2YjEtNGMyMC05NDcwLWFlYzU3NzIzYWI3MSJ9.IBSujNynZ2DrQAib-XQGyFmj2SPs0Ub8rod_fX1oGFJ1LjhV19FGmeC5t9pqWshwt0tVnIV1IBNBnLrTnhvlhg',
+        'Authorization': 'Bearer XXXXXXXXXXXXXXXXXXXXXX',
         'Content-Type': 'application/json;charset=UTF-8',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57'
+        'User-Agent': 'XXXXXXXXXXXXXXXXXXXXXX7'
     }
     cookies = {
-        'Cookie': 'muyun_sign_javascript=291084d14dd7e8a7236f80d4c031a1a1; muyun_sign_cookie=c101f478d4e678d61c5c335b65dced16; Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjNkNzhiZTQ2LTQ2YjEtNGMyMC05NDcwLWFlYzU3NzIzYWI3MSJ9.IBSujNynZ2DrQAib-XQGyFmj2SPs0Ub8rod_fX1oGFJ1LjhV19FGmeC5t9pqWshwt0tVnIV1IBNBnLrTnhvlhg; sidebarStatus=1'
+        'Cookie': 'XXXXXXXXXXXXXXXXXXXXXX'
     }
     data = {
         "signDate":sign_date_time,
@@ -35,5 +35,5 @@ if __name__ =='__main__':
     # 获取坐标/经纬度 106.489876,29.536867
     lng = '106.489876'
     lat = '29.536867'
-    Qd_info = everyday_dk(lng[0],lat[0],sign_date_time)
+    Qd_info = everyday_dk(lng,lat,sign_date_time)
     print(Qd_info)
