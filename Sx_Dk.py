@@ -1,23 +1,22 @@
 import requests
 import json
-import re
 import datetime
 
 """
 @author:icdox.
-@time:
-@py:本脚本实现每日实习自动打卡
+@time:2023-2-21
+@py:本脚本实现实习指定位置打卡
 """
-    
-def everyday_dk(lng,lat,sign_date_time):
+
+def Yj_Qd_Fp(lng,lat,sign_date_time,token):
     url = 'https://dgsx.cqvie.edu.cn/prod-api/internship_pending/signrecord'
     headers = {
-        'Authorization': 'Bearer XXXXXXXXXXXXXXXXXXXXXX',
+        'Authorization': 'Bearer '+token,
         'Content-Type': 'application/json;charset=UTF-8',
-        'User-Agent': 'XXXXXXXXXXXXXXXXXXXXXX7'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.63'
     }
     cookies = {
-        'Cookie': 'XXXXXXXXXXXXXXXXXXXXXX'
+        'Cookie': 'muyun_sign_javascript=291084d14dd7e8a7236f80d4c031a1a1; muyun_sign_cookie=807a7485070cf1ebd1ffebe465868352; Admin-Token='+token
     }
     data = {
         "signDate":sign_date_time,
@@ -27,13 +26,25 @@ def everyday_dk(lng,lat,sign_date_time):
     }
     data = json.dumps(data)
     response = requests.post(url=url,headers=headers,cookies=cookies,data=data).text
-    return response
-    
+    print(response)
+
+
+# 格式化 Cookie 值
+def reset_token(token):
+    return str(token.split('Admin-Token=')[1])
+
+
 if __name__ =='__main__':
+    token = input('请输入 Cookie 值:')
+
+    # 获取时间戳
     now=datetime.datetime.now()
     sign_date_time = now.strftime("%Y-%m-%dT%H:%M:%S.999Z")
-    # 获取坐标/经纬度 106.489876,29.536867
+
+    # 坐标/经纬度 106.489876,29.536867
     lng = '106.489876'
     lat = '29.536867'
-    Qd_info = everyday_dk(lng,lat,sign_date_time)
-    print(Qd_info)
+    token = reset_token(token)
+
+    # 签到
+    Yj_Qd_Fp(lng,lat,sign_date_time,token)
