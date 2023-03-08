@@ -1,6 +1,7 @@
 import requests
 import json
 import datetime
+import os
 
 """
 @author:icdox.
@@ -11,12 +12,12 @@ import datetime
 def Yj_Qd_Fp(lng,lat,sign_date_time,token):
     url = 'https://dgsx.cqvie.edu.cn/prod-api/internship_pending/signrecord'
     headers = {
-        'Authorization': 'Bearer '+token,
+        'Authorization': 'Bearer '+str(token.split('Admin-Token=')[1]),
         'Content-Type': 'application/json;charset=UTF-8',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.63'
     }
     cookies = {
-        'Cookie': 'muyun_sign_javascript=291084d14dd7e8a7236f80d4c031a1a1; muyun_sign_cookie=807a7485070cf1ebd1ffebe465868352; Admin-Token='+token
+        'Cookie': 'muyun_sign_javascript=291084d14dd7e8a7236f80d4c031a1a1; muyun_sign_cookie='+token
     }
     data = {
         "signDate":sign_date_time,
@@ -31,11 +32,12 @@ def Yj_Qd_Fp(lng,lat,sign_date_time,token):
 
 # 格式化 Cookie 值
 def reset_token(token):
-    return str(token.split('Admin-Token=')[1])
+    return str(token.split('muyun_sign_cookie=')[1])
 
 
 if __name__ =='__main__':
     token = input('请输入 Cookie 值:')
+    os.system('cls')
 
     # 获取时间戳
     now=datetime.datetime.now()
@@ -48,3 +50,5 @@ if __name__ =='__main__':
 
     # 签到
     Yj_Qd_Fp(lng,lat,sign_date_time,token)
+
+    os.system("pause")
