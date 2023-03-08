@@ -8,4 +8,4 @@ javascript:(()=>{prompt('',document.cookie)})();
 ```
 
 ### 在浏览器顶岗实习界面按下F12开发者模式下的控制台里输入如上的代码，然后复制内容即可!
-'''javascript Cookie'''  和 '''javascript Authorization ''' 值时效不可控，本脚本仅作为学习交流！
+```javascript Cookie```  和 ```javascript Authorization ``` 值时效不可控，本脚本仅作为学习交流！
