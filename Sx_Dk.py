@@ -12,7 +12,7 @@ import os
 def Yj_Qd_Fp(lng,lat,sign_date_time,token):
     url = 'https://dgsx.cqvie.edu.cn/prod-api/internship_pending/signrecord'
     headers = {
-        'Authorization': 'Bearer '+str(token.split('Admin-Token=')[1]),
+        'Authorization': 'Bearer '+str(token.split('Admin-Token=')[1])[:-17],
         'Content-Type': 'application/json;charset=UTF-8',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.63'
     }
