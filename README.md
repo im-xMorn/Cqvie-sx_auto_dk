@@ -11,6 +11,4 @@ javascript:(()=>{prompt('',userAgent)})();
 ```
 
 ### 在浏览器顶岗实习界面按下F12开发者模式下的控制台里输入如上的代码，然后复制内容即可!
-<font color="#dd0000"捆绑、时效不可控</font>，本脚本仅作为学习交流！
-$\color{red} {User-Agent、Cookie} $
-$\color{red} {Red} $
+$\color{red} {User-Agent、Cookie 值捆绑、时效不可控，本脚本仅作为学习交流！} $
