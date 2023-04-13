@@ -1,4 +1,4 @@
-# 本脚本实现实习期间指定位置打卡
+# 本脚本实现实习期间指定位置签到、补签
 ## 获取经纬度API
 ####  https://api.map.baidu.com/geocoderaddress=详细地址&output=json&key=E4805d16520de693a3fe707cdc962045&city=城市
 ## Cookie值获取:
