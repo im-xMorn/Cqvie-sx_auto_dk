@@ -2,6 +2,7 @@ import requests
 import json
 import datetime
 import os
+import time
 
 """
 --------------------------------
@@ -24,7 +25,7 @@ def Yj_Qd_Fp(lng,lat,Qd_date_time,token):
     headers = {
         'Authorization': 'Bearer '+str(token.split('Admin-Token=')[1]),
         'Content-Type': 'application/json;charset=UTF-8',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.39'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.64'
     }
     cookies = {
         'Cookie': 'muyun_sign_javascript=291084d14dd7e8a7236f80d4c031a1a1; muyun_sign_cookie='+token
@@ -41,10 +42,9 @@ def Yj_Qd_Fp(lng,lat,Qd_date_time,token):
     # 判断是否成功
     If_Qd = response.split('"code":')[1][0:3]
     if If_Qd == '500':
-        print('已签到或 Cookie 值错误和 UA 标识过期!')
+        print('今天不用签到,已签到或 Cookie 值错误和 UA 标识过期!')
     elif If_Qd == '200':
         print('签到成功!')
-
 
 # 格式化 Cookie 值
 def reset_token(token):
@@ -52,23 +52,35 @@ def reset_token(token):
 
 
 if __name__ =='__main__':
-    token = input('请输入 Cookie 值:')
+    token = input('请输入cookie值')
     os.system('cls')
-
+    token = reset_token(token)
+    # 坐标/经纬度 106.489876,29.536867
+    lng = '106.489876'
+    lat = '29.536867'
+    
+    '''---单次补签---'''
     # 获取时间戳
     now=datetime.datetime.now()
     # sign_date_time = now.strftime("%Y-%m-%dT%H:%M:%S.999Z")
     # 补签 修改下面括号内容日期即可
-    Qd_date_time = now.strftime("2023-04-13T12:13:31.999Z")
+    Qd_date_time = now.strftime("2023-05-1T12:13:31.999Z")
     # 2023-03-27T21:54:42.999Z
-     
-    # 坐标/经纬度 106.489876,29.536867
-    lng = '106.489876'
-    lat = '29.536867'
-    token = reset_token(token)
-
     # 签到
     # Yj_Qd_Fp(lng,lat,'2023-%m-%dT%H:%M:%S.999Z',token)
     Yj_Qd_Fp(lng,lat,Qd_date_time,token)
-    
+    """
+    --- 循环补签---
+    # for i in range(26,29):
+    #     # 获取时间戳
+    #     now=datetime.datetime.now()
+    #     # sign_date_time = now.strftime("%Y-%m-%dT%H:%M:%S.999Z")
+    #     # 补签 修改下面括号内容日期即可
+    #     Qd_date_time = now.strftime(f"2023-04-{str(i)}T12:13:31.999Z")
+    #     # 2023-03-27T21:54:42.999Z
+    #     # 签到
+    #     # Yj_Qd_Fp(lng,lat,'2023-%m-%dT%H:%M:%S.999Z',token)
+    #     Yj_Qd_Fp(lng,lat,Qd_date_time,token)
+    #     time.sleep(3)   
     os.system("pause")
+    """
